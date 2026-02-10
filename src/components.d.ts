@@ -8,20 +8,6 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface MsevcikAmbulanceWlList {
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-    }
 }
 declare global {
     interface HTMLMsevcikAmbulanceWlListElement extends Components.MsevcikAmbulanceWlList, HTMLStencilElement {
@@ -30,44 +16,15 @@ declare global {
         prototype: HTMLMsevcikAmbulanceWlListElement;
         new (): HTMLMsevcikAmbulanceWlListElement;
     };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLElementTagNameMap {
         "msevcik-ambulance-wl-list": HTMLMsevcikAmbulanceWlListElement;
-        "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
     interface MsevcikAmbulanceWlList {
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
-
-    interface MyComponentAttributes {
-        "first": string;
-        "middle": string;
-        "last": string;
-    }
-
     interface IntrinsicElements {
         "msevcik-ambulance-wl-list": MsevcikAmbulanceWlList;
-        "my-component": Omit<MyComponent, keyof MyComponentAttributes> & { [K in keyof MyComponent & keyof MyComponentAttributes]?: MyComponent[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `attr:${K}`]?: MyComponentAttributes[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `prop:${K}`]?: MyComponent[K] };
     }
 }
 export { LocalJSX as JSX };
@@ -75,7 +32,6 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "msevcik-ambulance-wl-list": LocalJSX.IntrinsicElements["msevcik-ambulance-wl-list"] & JSXBase.HTMLAttributes<HTMLMsevcikAmbulanceWlListElement>;
-            "my-component": LocalJSX.IntrinsicElements["my-component"] & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
 }
