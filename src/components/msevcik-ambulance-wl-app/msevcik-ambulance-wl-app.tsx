@@ -13,6 +13,8 @@ export class MsevcikAmbulanceWlApp {
   @State() private relativePath = "";
 
   @Prop() basePath: string = "";
+  @Prop() apiBase: string;
+  @Prop() ambulanceId: string;
 
   componentWillLoad() {
     const baseUri = new URL(this.basePath, document.baseURI || "/").pathname;
@@ -49,15 +51,16 @@ export class MsevcikAmbulanceWlApp {
     }
 
     return (
-    <Host>
-      { element === "editor"
-      ? <msevcik-ambulance-wl-editor entry-id={entryId}
-          oneditor-closed={ () => navigate("./list")} >
-        </msevcik-ambulance-wl-editor>
-      : <msevcik-ambulance-wl-list onentry-clicked={ (ev: any) => navigate("./entry/" + ev.detail)}></msevcik-ambulance-wl-list>
-      }
+      <Host>
+        {element === "editor"
+          ? <msevcik-ambulance-wl-editor entry-id={entryId}
+            oneditor-closed={() => navigate("./list")} >
+          </msevcik-ambulance-wl-editor>
+          : <msevcik-ambulance-wl-list ambulance-id={this.ambulanceId} api-base={this.apiBase}
+            onentry-clicked={(ev: any) => navigate("./entry/" + ev.detail)}></msevcik-ambulance-wl-list>
+        }
 
-    </Host>
+      </Host>
     );
   }
 }
